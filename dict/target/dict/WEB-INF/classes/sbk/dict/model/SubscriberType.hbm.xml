@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sbk.dict.model.beans.SubscriberType" table="SubscriberType">
+        <id name="TypeId" type="int">
+            <column name="TypeId" precision="1" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="typeDescription" type="string">
+            <column name="typeDesc" length="30" not-null="true" />
+        </property>
+        
+         <set name="subscribersSet" table="Subscriber">
+        	<key column="TypeId"/>
+        <many-to-many column="SubscriberType" class="Subscriber"/>
+    </set>
+    </class>
+</hibernate-mapping>

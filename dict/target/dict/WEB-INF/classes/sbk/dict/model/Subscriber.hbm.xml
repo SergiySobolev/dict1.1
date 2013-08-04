@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="sbk.dict.model.beans.Subscriber" table="Subscriber">
+        <id name="SubscriberId" type="int">
+            <column name="SubscriberId" precision="1" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="SubscriberName" type="string">
+            <column name="SubscriberName" length="150" not-null="true" />
+        </property>
+        <property name="SubscriberType" type="int">
+            <column name="SubscriberType"  not-null="true" />
+        </property>
+        <property name="CompanyName" type="string">
+            <column name="CompanyName" length="5" not-null="true" />
+        </property>
+         <property name="OrganizationId" type="string">
+            <column name="OrganizationId" length="50" not-null="true" />
+        </property>
+         <property name="Position" type="string">
+            <column name="Position" length="100" not-null="true" />
+        </property>
+        <property name="SubscrLastName" type="string">
+            <column name="SubscrLastName" length="50" not-null="true" />
+        </property>
+        <property name="SubscrFirstName" type="string">
+            <column name="SubscrFirstName" length="50" not-null="true" />
+        </property>
+        <property name="SubscrMiddleName" type="string">
+            <column name="SubscrMiddleName" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
