@@ -60,7 +60,7 @@
 	padding: 0 0 0 8px;
 	color: #444444;
 	text-decoration: none;
-	width:200px;
+	width:220px;
 }
 
 .chzn-container-single .chzn-default {
@@ -345,7 +345,7 @@
 	margin: 0 4px;
 	position: absolute;
 	text-align: center;
-	width: 321px; /* This should by dynamic with js */
+	width: 200px; /* This should by dynamic with js */
 	z-index: 1;
 }
 
@@ -404,7 +404,7 @@
 
 .chzn-container-active .chzn-single-with-drop div {
 	background: transparent;
-	border-left: none;
+	border-left: none;	
 }
 
 .chzn-container-active .chzn-single-with-drop div b {

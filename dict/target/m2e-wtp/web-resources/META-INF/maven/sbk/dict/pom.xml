@@ -78,11 +78,11 @@
 					<container>
 						<containerId>tomcat7x</containerId>
 						<type>installed</type>
-						<home>${CATALINA_HOME}</home>
+						<home>e:\webservers\tomcat7\</home>
 					</container>
 					<configuration>
 						<type>existing</type>
-						<home>${CATALINA_HOME}</home>
+						<home>e:\webservers\tomcat7\</home>
 					</configuration>
 					<deployer>
 						<type>installed</type>

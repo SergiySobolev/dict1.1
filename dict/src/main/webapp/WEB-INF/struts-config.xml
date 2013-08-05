@@ -9,17 +9,19 @@
 	</form-beans>	
 	<global-forwards>
 		<forward name="dictStyle" path="/css/dict.css" />
-		<forward name="chosenStyle" path="/css/chosen.css" />
+		<forward name="chosenStyle" path="/css/chosen.css" />	
+		<forward name="index" path="/index.do" redirect="true"/>		
 	</global-forwards>
 	<action-mappings>
 		<action name="dictReqForm" path="/index" type="sbk.dict.controller.actions.SearchAction" validate="false" scope="session">
 			<forward name="index" path="/WEB-INF/views/index.jsp" /> 			
 		</action>
 		<action name="dictReqForm" path="/DictionaryAction" parameter="method"
-			scope="session" type="sbk.dict.controller.actions.DictionaryAction">
-			<forward name="index" path="/index.do" />		
-		</action>	
-
+			scope="session" type="sbk.dict.controller.actions.DictionaryAction">							
+		</action>
+		<action  name="dictReqForm" path="/LocaleAction" type="sbk.dict.controller.actions.LocaleSelectAction" parameter="lang" 
+			 scope="session" validate="false">			 
+		</action>
 		<action name="LoginForm" path="/login" scope="session"
 			type="sbk.dict.controller.actions.LoginAction" validate="false">
 			<forward name="success" path="/WEB-INF/views/success.jsp" />
@@ -28,9 +30,8 @@
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />		
-	
-	<message-resources parameter="sbk.dict.common.Common" key="commonMsg" null="true"></message-resources>
-	
+	<message-resources parameter="MessageResource" null="false" />
+	<message-resources parameter="sbk.dict.common.Common" key="commonMsg" null="true"/>	
 	<plug-in className="org.apache.struts.tiles.TilesPlugin">
 		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
 		<set-property property="moduleAware" value="true" />
