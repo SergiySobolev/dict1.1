@@ -60,7 +60,7 @@
 	padding: 0 0 0 8px;
 	color: #444444;
 	text-decoration: none;
-	width:220px;
+	width:240px;
 }
 
 .chzn-container-single .chzn-default {
@@ -74,7 +74,8 @@
 	white-space: nowrap;
 	-o-text-overflow: ellipsis;
 	-ms-text-overflow: ellipsis;
-	text-overflow: ellipsis;
+	text-overflow: ellipsis;	
+	font-weight:bold;
 }
 
 .chzn-container-single .chzn-single abbr {
@@ -86,6 +87,7 @@
 	height: 13px;
 	font-size: 1px;
 	background: url('chosen-sprite.png') right top no-repeat;
+	font-weight: bold;
 }
 
 .chzn-container-single .chzn-single abbr:hover {
@@ -329,7 +331,6 @@
 .chzn-container .chzn-results .group-result {
 	cursor: default;
 	color: #999;
-	font-weight: bold;
 }
 
 .chzn-container .chzn-results .group-option {

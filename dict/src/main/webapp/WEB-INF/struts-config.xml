@@ -4,8 +4,7 @@
           "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
 <struts-config>		
 	<form-beans>
-		<form-bean name="dictReqForm" type="sbk.dict.model.beans.DictReqForm" />
-		<form-bean name="LoginForm" type="sbk.dict.model.beans.LoginForm" />
+		<form-bean name="dictReqForm" type="sbk.dict.model.beans.DictReqForm" />		
 	</form-beans>	
 	<global-forwards>
 		<forward name="dictStyle" path="/css/dict.css" />
@@ -21,12 +20,7 @@
 		</action>
 		<action  name="dictReqForm" path="/LocaleAction" type="sbk.dict.controller.actions.LocaleSelectAction" parameter="lang" 
 			 scope="session" validate="false">			 
-		</action>
-		<action name="LoginForm" path="/login" scope="session"
-			type="sbk.dict.controller.actions.LoginAction" validate="false">
-			<forward name="success" path="/WEB-INF/views/success.jsp" />
-			<forward name="failure" path="/login.jsp" />
-		</action>
+		</action>		
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />		

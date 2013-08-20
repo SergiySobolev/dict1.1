@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Entity;
@@ -36,14 +37,21 @@ public class Subscriber {
 	String subscrMiddleName;
 	@Column(name="SubscriberEmplId")
 	String emplId;
-	
+		
 	@ManyToOne
 	@JoinColumn(name="SubscriberType",insertable=false,updatable=false,nullable=false)				
 	SubscriberType	subsType;
 	
-	@OneToMany(cascade={CascadeType.ALL})
-    @JoinColumn(name="SubscriberId", nullable=false)
+	@OneToMany(fetch=FetchType.LAZY)
+    @JoinColumn(name="SubscriberId")
 	Set<PhoneNumber> phoneNumberSet;
+	
+	@JoinColumn(name="MobilePhone")
+	String	mobilePhone;
+	@JoinColumn(name="InnerPhone")
+	String  innerPhone;
+	@JoinColumn(name="OuterPhone")
+	String  outerPhone;
 
 	public int getSubscriberId() {
 		return subscriberId;
@@ -103,13 +111,31 @@ public class Subscriber {
 		return phoneNumberSet;
 	}
 	public void setPhoneNumberSet(Set<PhoneNumber> phoneNumberSet) {
-		this.phoneNumberSet = phoneNumberSet;
+		this.phoneNumberSet = phoneNumberSet;	
 	}
 	public String getEmplId() {
 		return emplId;
 	}
 	public void setEmplId(String emplId) {
 		this.emplId = emplId;
+	}
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+	public void setMobilePhone(String mobilePhone) {
+		this.mobilePhone = mobilePhone;
+	}
+	public String getInnerPhone() {
+		return innerPhone;
+	}
+	public void setInnerPhone(String innerPhone) {
+		this.innerPhone = innerPhone;
+	}
+	public String getOuterPhone() {
+		return outerPhone;
+	}
+	public void setOuterPhone(String outerPhone) {
+		this.outerPhone = outerPhone;
 	}
 	public Subscriber(){
 		this.phoneNumberSet = new HashSet<PhoneNumber>();

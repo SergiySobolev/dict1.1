@@ -9,6 +9,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="shortcut icon" href="img/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="<html:rewrite forward='dictStyle'/>" />		
 	<link rel="stylesheet" type="text/css" href="<html:rewrite forward='chosenStyle'/>" />		
 	<title><bean:message key="dict.title.general" bundle="commonMsg" /></title>			

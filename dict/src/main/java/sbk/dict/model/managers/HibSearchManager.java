@@ -1,6 +1,9 @@
 package sbk.dict.model.managers;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -10,7 +13,6 @@ import org.hibernate.criterion.Restrictions;
 import sbk.dict.model.beans.DictReqForm;
 import sbk.dict.model.beans.PhoneNumber;
 import sbk.dict.model.beans.PhoneType;
-import sbk.dict.model.beans.ResultBean;
 import sbk.dict.model.beans.Subscriber;
 import sbk.dict.model.beans.SubscriberType;
 import sbk.dict.model.utils.HibernateUtils;
@@ -143,6 +145,7 @@ public class HibSearchManager implements ISearchManager {
 	private boolean isNotEmpty(String s){
 		return s != "" && s != null;
 	}	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Subscriber> makeSearch(DictReqForm dictReqForm){
 		ArrayList<Subscriber> result	=	 new ArrayList<Subscriber>();		
 		Session				 session	=	 HibernateUtils.getSessionFactory().getCurrentSession();
@@ -160,7 +163,12 @@ public class HibSearchManager implements ISearchManager {
 		if(this.isNotEmpty(dictReqForm.getPosition())){
 			criteria.add(Restrictions.eq("position", dictReqForm.getPosition()));
 		}
-		result = (ArrayList<Subscriber>) criteria.list();		
+		result = (ArrayList<Subscriber>) criteria.list();
+//		Iterator it = result.get(0).getPhoneNumberSet().iterator();
+//		while(it.hasNext()){
+//			PhoneNumber pns = (PhoneNumber) it.next();
+//			pns.getPhoneNumber();
+//		}
 		session.getTransaction().commit();		
 		return result;
 	}	

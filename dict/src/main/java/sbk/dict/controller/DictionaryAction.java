@@ -22,9 +22,7 @@ public class DictionaryAction extends LookupDispatchAction {
 	private static final String success 	= "success";
 	private static final String userSuccess	= "userSuccess";
 	public ActionForward search(ActionMapping mapping, ActionForm form,HttpServletRequest request, HttpServletResponse response){
-			DictReqForm	dictReqForm				=		(DictReqForm)form;	
-//			HibSearchManager mng				=		new HibSearchManager();
-//			ArrayList<Subscriber>   resList		=		mng.makeSearch(dictReqForm);		
+			DictReqForm	dictReqForm				=		(DictReqForm)form;			
 			SearchManager sm = new SearchManager();
 			ArrayList<Subscriber> resList = sm.makeSearch(null);
 			request.setAttribute("resList", resList);

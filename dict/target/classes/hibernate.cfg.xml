@@ -16,5 +16,6 @@
         <mapping class="sbk.dict.model.beans.SubscriberType"/> 
         <mapping class="sbk.dict.model.beans.PhoneType"/>  
         <mapping class="sbk.dict.model.beans.PhoneNumber"/>     
+        <mapping class="sbk.dict.model.beans.RequestBean"/> 
     </session-factory>    
 </hibernate-configuration>

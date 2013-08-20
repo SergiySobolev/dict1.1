@@ -14,23 +14,19 @@ public class PhoneNumber {
 	@Id
 	@GeneratedValue
 	@Column(name="PhoneId")
-	int    PhoneId;
-	
+	int    PhoneId;	
 	@ManyToOne
 	@JoinColumn(name="TypeId",
 	            insertable=false, updatable=false,
 	            nullable=false)
-	PhoneType	phoneType;
-	
+	PhoneType	phoneType;	
 	@ManyToOne
 	@JoinColumn(name="SubscriberId",
 	            insertable=false, updatable=false,
 	            nullable=false)
-	Subscriber	subscriber;
-	
+	Subscriber	subscriber;	
 	@Column(name="PhoneNumber")
 	String phoneNumber;
-
 	public int getPhoneId() {
 		return PhoneId;
 	}
