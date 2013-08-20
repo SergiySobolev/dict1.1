@@ -60,7 +60,7 @@
 	padding: 0 0 0 8px;
 	color: #444444;
 	text-decoration: none;
-	width:240px;
+	width:160px;
 }
 
 .chzn-container-single .chzn-default {
@@ -346,7 +346,7 @@
 	margin: 0 4px;
 	position: absolute;
 	text-align: center;
-	width: 200px; /* This should by dynamic with js */
+/* 	width: 200px; This should by dynamic with js */
 	z-index: 1;
 }
 
