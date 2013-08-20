@@ -1,10 +1,13 @@
 package sbk.dict.controller.actions;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts.Globals;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -16,6 +19,7 @@ import sbk.dict.model.beans.Subscriber;
 import sbk.dict.model.managers.CacheManager;
 import sbk.dict.model.managers.RequestManager;
 import sbk.dict.model.managers.SearchManager;
+import sbk.dict.model.utils.DictUtils;
 
 public class SearchAction extends Action {
 	final private String INDEX = "index";
@@ -24,7 +28,12 @@ public class SearchAction extends Action {
     	SearchManager 			srchMng						=	new SearchManager();
     	RequestManager  		recMng						=	new RequestManager();   
     	CacheManager			cacheMng					=	new CacheManager();
-    	ArrayList<Subscriber>   resList						=   null;      	
+    	ArrayList<Subscriber>   resList						=   null; 
+    	Cookie[]				cookies						=   request.getCookies();
+    	String 					locale 						=   DictUtils.findCookie(cookies, "locale");
+    	if(locale != null){
+    		request.getSession().setAttribute(Globals.LOCALE_KEY,new Locale(locale));	
+    	}
     	recMng.addToRequests(dictReqForm, request);
     	try{
     		 resList					=	srchMng.makeSearch(dictReqForm);
