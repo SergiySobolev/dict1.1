@@ -1,5 +1,7 @@
 package sbk.dict.model.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,10 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Table(name="PhoneNumber")
-public class PhoneNumber {
+public class PhoneNumber implements Serializable{
 	@Id
 	@GeneratedValue
 	@Column(name="PhoneId")

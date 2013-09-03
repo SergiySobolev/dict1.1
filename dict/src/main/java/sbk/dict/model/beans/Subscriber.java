@@ -1,8 +1,8 @@
 package sbk.dict.model.beans;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
@@ -13,10 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 @Entity
+@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Table(name="Subscriber")
-public class Subscriber {
+public class Subscriber implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name="SubscriberId")
@@ -36,23 +39,19 @@ public class Subscriber {
 	@Column(name="SubscrMiddleName")
 	String subscrMiddleName;
 	@Column(name="SubscriberEmplId")
-	String emplId;
-		
+	String emplId;		
 	@ManyToOne
 	@JoinColumn(name="SubscriberType",insertable=false,updatable=false,nullable=false)				
-	SubscriberType	subsType;
-	
+	SubscriberType	subsType;	
 	@OneToMany(fetch=FetchType.LAZY)
     @JoinColumn(name="SubscriberId")
-	Set<PhoneNumber> phoneNumberSet;
-	
+	Set<PhoneNumber> phoneNumberSet;	
 	@JoinColumn(name="MobilePhone")
 	String	mobilePhone;
 	@JoinColumn(name="InnerPhone")
 	String  innerPhone;
 	@JoinColumn(name="OuterPhone")
 	String  outerPhone;
-
 	public int getSubscriberId() {
 		return subscriberId;
 	}
@@ -71,31 +70,31 @@ public class Subscriber {
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
-	public String getDepartament() {
+	public String getDepartament() {		
 		return departament;
 	}
 	public void setDepartament(String departament) {
 		this.departament = departament;
 	}
-	public String getPosition() {
+	public String getPosition() {		
 		return position;
 	}
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	public String getSubscrLastName() {
+	public String getSubscrLastName() {		
 		return subscrLastName;
 	}
-	public void setSubscrLastName(String subscrLastName) {
-		this.subscrLastName = subscrLastName;
+	public void setSubscrLastName(String subscrLastName) {		
+		this.subscrLastName = subscrLastName;		
 	}
-	public String getSubscrFirstName() {
+	public String getSubscrFirstName() {		
 		return subscrFirstName;
 	}
 	public void setSubscrFirstName(String subscrFirstName) {
 		this.subscrFirstName = subscrFirstName;
 	}
-	public String getSubscrMiddleName() {
+	public String getSubscrMiddleName() {		
 		return subscrMiddleName;
 	}
 	public void setSubscrMiddleName(String subscrMiddleName) {
@@ -114,7 +113,7 @@ public class Subscriber {
 		this.phoneNumberSet = phoneNumberSet;	
 	}
 	public String getEmplId() {
-		return emplId;
+		return emplId.trim();
 	}
 	public void setEmplId(String emplId) {
 		this.emplId = emplId;

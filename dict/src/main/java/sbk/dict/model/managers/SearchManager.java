@@ -41,9 +41,4 @@ public class SearchManager {
 			return null;
 		}
 	}
-
-	public static void main(String[] args) {
-		SearchManager sm = new SearchManager();
-		ArrayList<Subscriber> list = sm.makeSearch(null);
-	}
 }

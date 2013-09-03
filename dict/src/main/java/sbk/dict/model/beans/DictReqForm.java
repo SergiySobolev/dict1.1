@@ -49,4 +49,12 @@ public class DictReqForm extends ActionForm {
 	public void setSubscriberList(ArrayList<Subscriber> subscriberList) {
 		this.subscriberList = subscriberList;
 	}	
+	public boolean hasAnyFilters(){
+		boolean result = false;
+		result = (this.firstName != "")   || 
+				 (this.lastName != "")    || 
+				 (this.departament != "") || 
+				 (this.position != "");
+		return result;
+	}
 }

@@ -20,7 +20,7 @@
 		</action>
 		<action  name="dictReqForm" path="/LocaleAction" type="sbk.dict.controller.actions.LocaleSelectAction" parameter="lang" 
 			 scope="session" validate="false">			 
-		</action>		
+		</action>
 	</action-mappings>
 
 	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />		

@@ -19,7 +19,8 @@ public class SearchAction extends Action {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response){
 		DictReqForm	dictReqForm				=	(DictReqForm)form;	
 		SearchManager mng					=	new SearchManager();
-		ArrayList<Subscriber>   resList	=	mng.makeSearch(dictReqForm);									
+		ArrayList<Subscriber>   resList	=	mng.makeSearch(dictReqForm);
+		
 		request.setAttribute("resList", resList);
 		dictReqForm.setSubscriberList(resList);
 		return mapping.findForward(INDEX);
