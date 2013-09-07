@@ -75,6 +75,29 @@
 			<artifactId>javassist</artifactId>
 			<version>3.12.1.GA</version>
 		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
 
 	<repositories>
@@ -101,11 +124,11 @@
 					<container>
 						<containerId>tomcat7x</containerId>
 						<type>installed</type>
-						<home>d:\webservers\tomcat7\</home>
+						<home>e:\webservers\tomcat7\</home>
 					</container>
 					<configuration>
 						<type>existing</type>
-						<home>d:\webservers\tomcat7\</home>
+						<home>e:\webservers\tomcat7\</home>
 					</configuration>
 					<deployer>
 						<type>installed</type>

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
@@ -20,12 +21,14 @@ import sbk.dict.model.utils.HibernateUtils;
 
 public class HibSearchManager implements ISearchManager {
 	@SuppressWarnings("unchecked")
+	 public static final Logger LOG=Logger.getLogger(HibSearchManager.class);
 	public static void main(String[] args) {
 		HibSearchManager sm = new HibSearchManager();
 		// sm.makeInsert("Сотрудник", "SubsName31", "Мобильный", "999999");
 		DictReqForm dictReqForm = new DictReqForm();
 		dictReqForm.setLastName("LastName1");
 		sm.makeSearch(dictReqForm);
+		LOG.info(dictReqForm.toString());
 	}
 	private boolean isNotEmpty(String s) {
 		return s != "" && s != null;

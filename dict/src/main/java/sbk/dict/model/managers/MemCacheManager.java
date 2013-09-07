@@ -21,7 +21,6 @@ public class MemCacheManager implements ICacheManager {
 	//	return null;
 	//}
 
-	@Override
 	public void backup(ArrayList<Subscriber> list) {
 	//	MemcacheService cache = this.getCache();
 	//	if (cache != null) {
@@ -30,7 +29,6 @@ public class MemCacheManager implements ICacheManager {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public ArrayList<Subscriber> restore() {
 	//	MemcacheService cache = this.getCache();
 		ArrayList<Subscriber> list = null;
